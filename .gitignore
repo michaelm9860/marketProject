@@ -32,3 +32,6 @@ build/
 ### VS Code ###
 .vscode/
 /src/main/resources/certs/
+/src/main/resources/uploads/
+/src/main/resources/http-client.private.env.json
+/src/main/resources/market.http

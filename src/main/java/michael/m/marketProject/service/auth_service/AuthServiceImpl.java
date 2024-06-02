@@ -5,7 +5,9 @@ import lombok.RequiredArgsConstructor;
 import michael.m.marketProject.dto.login.LoginRequestDTO;
 import michael.m.marketProject.dto.login.LoginResponseDTO;
 import michael.m.marketProject.error.AuthenticationException;
-import michael.m.marketProject.service.jwt.JWTService;
+import michael.m.marketProject.error.ResourceNotFoundException;
+import michael.m.marketProject.service.file_storage_service.FileStorageService;
+import michael.m.marketProject.service.jwt_service.JWTService;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -21,6 +23,7 @@ import michael.m.marketProject.entity.User;
 import michael.m.marketProject.error.UserAlreadyExistsException;
 import michael.m.marketProject.repository.RoleRepository;
 import michael.m.marketProject.repository.UserRepository;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -39,11 +42,18 @@ public class AuthServiceImpl implements AuthService {
 
     private final JWTService jwtService;
 
+    private final FileStorageService fileStorageService;
+
     @Transactional
     @Override
-    public UserResponseDTO register(UserCreateDTO dto) {
+    public UserResponseDTO register(UserCreateDTO dto, MultipartFile profilePictureFile) {
         checkIfPhoneNumberExists(dto);
         checkIfEmailExists(dto);
+
+        String fileName = fileStorageService.storeFile(profilePictureFile);
+        dto.setProfilePicture(fileName);
+
+        //TODO: In client side, make a default profile picture if the user doesn't upload one.
 
         User user = modelMapper.map(dto, User.class);
         user.setPassword(passwordEncoder.encode(dto.getPassword()));
@@ -57,7 +67,9 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public LoginResponseDTO login(LoginRequestDTO dto) {
-        var user = getUserEntityOrThrow(dto.email());
+        var user = userRepository.findUserByEmailIgnoreCase(dto.email()).orElseThrow(
+                () -> new AuthenticationException("Username or password don't match")
+        );
 
         if (!passwordEncoder.matches(dto.password(), user.getPassword())) {
             throw new AuthenticationException("Username or password don't match");
@@ -99,7 +111,7 @@ public class AuthServiceImpl implements AuthService {
 
     private User getUserEntityOrThrow(String email) {
         return userRepository.findUserByEmailIgnoreCase(email).orElseThrow(
-                () -> new UsernameNotFoundException(email)
+                () -> new ResourceNotFoundException("User", "email", email)
         );
     }
 }

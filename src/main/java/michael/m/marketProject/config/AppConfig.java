@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import michael.m.marketProject.custom_beans.*;
 import michael.m.marketProject.repository.ProductPostRepository;
 import michael.m.marketProject.repository.UserRepository;
+import michael.m.marketProject.service.file_storage_service.FileStorageService;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,6 +17,7 @@ public class AppConfig {
 
     private final UserRepository userRepository;
     private final ProductPostRepository postRepository;
+    private final FileStorageService fileStorageService;
     @Bean
     ModelMapper getModelMapper(){
         return new ModelMapper();
@@ -49,5 +51,10 @@ public class AppConfig {
     @Bean
     public PropertyUpdater propertyUpdater(){
         return new PropertyUpdater();
+    }
+
+    @Bean
+    public HandleOldPicturesDeletionOnEntityChange handleOldPicturesDeletionOnEntityChange(){
+        return new HandleOldPicturesDeletionOnEntityChange(fileStorageService);
     }
 }

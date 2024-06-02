@@ -10,6 +10,7 @@ import michael.m.marketProject.service.auth_service.AuthService;
 import michael.m.marketProject.dto.login.LoginRequestDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
@@ -19,8 +20,13 @@ public class AuthController {
 
     private final AuthService authService;
     @PostMapping("/register")
-    public ResponseEntity<UserResponseDTO> register(@RequestBody @Valid UserCreateDTO dto, UriComponentsBuilder uriBuilder) {
-        return ResponseEntity.created(uriBuilder.path("/login").build().toUri()).body(authService.register(dto));
+    public ResponseEntity<UserResponseDTO> register(
+            @RequestPart("user") @Valid UserCreateDTO dto,
+            @RequestPart("profilePictureFile") MultipartFile profilePictureFile,
+            UriComponentsBuilder uriBuilder) {
+
+        return ResponseEntity.created(uriBuilder.path("/login").build().toUri())
+                .body(authService.register(dto, profilePictureFile));
     }
 
     @PostMapping("/login")

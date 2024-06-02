@@ -7,6 +7,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import java.io.IOException;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -36,5 +37,65 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ErrorResponseDTO> handleGenericException(Exception ex) {
         ErrorResponseDTO errorResponse = new ErrorResponseDTO("INTERNAL_SERVER_ERROR", ex.getMessage());
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
+    }
+
+    @ExceptionHandler(IOException.class)
+    public ResponseEntity<ErrorResponseDTO> handleIOException(IOException ex) {
+        ErrorResponseDTO errorResponse = new ErrorResponseDTO("BAD_REQUEST", ex.getMessage());
+        return ResponseEntity.badRequest().body(errorResponse);
+    }
+
+    @ExceptionHandler(AuthenticationException.class)
+    public ResponseEntity<ErrorResponseDTO> handleAuthenticationException(AuthenticationException ex) {
+        ErrorResponseDTO errorResponse = new ErrorResponseDTO("UNAUTHORIZED", ex.getMessage());
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(errorResponse);
+    }
+
+    @ExceptionHandler(EntityOwnershipException.class)
+    public ResponseEntity<ErrorResponseDTO> handleEntityOwnershipException(EntityOwnershipException ex) {
+        ErrorResponseDTO errorResponse = new ErrorResponseDTO("FORBIDDEN", ex.getMessage());
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(errorResponse);
+    }
+
+    @ExceptionHandler(FileStorageException.class)
+    public ResponseEntity<ErrorResponseDTO> handleFileStorageException(FileStorageException ex) {
+        ErrorResponseDTO errorResponse = new ErrorResponseDTO("BAD_REQUEST", ex.getMessage());
+        return ResponseEntity.badRequest().body(errorResponse);
+    }
+
+    @ExceptionHandler(GroupAdminPrivilegesException.class)
+    public ResponseEntity<ErrorResponseDTO> handleGroupAdminPrivilegesException(GroupAdminPrivilegesException ex) {
+        ErrorResponseDTO errorResponse = new ErrorResponseDTO("FORBIDDEN", ex.getMessage());
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(errorResponse);
+    }
+
+    @ExceptionHandler(GroupMembershipException.class)
+    public ResponseEntity<ErrorResponseDTO> handleGroupMembershipException(GroupMembershipException ex) {
+        ErrorResponseDTO errorResponse = new ErrorResponseDTO("FORBIDDEN", ex.getMessage());
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(errorResponse);
+    }
+
+    @ExceptionHandler(PaginationException.class)
+    public ResponseEntity<ErrorResponseDTO> handlePaginationException(PaginationException ex) {
+        ErrorResponseDTO errorResponse = new ErrorResponseDTO("BAD_REQUEST", ex.getMessage());
+        return ResponseEntity.badRequest().body(errorResponse);
+    }
+
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<ErrorResponseDTO> handleResourceNotFoundException(ResourceNotFoundException ex) {
+        ErrorResponseDTO errorResponse = new ErrorResponseDTO("NOT_FOUND", ex.getMessage());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponse);
+    }
+
+    @ExceptionHandler(TrafficTooHighException.class)
+    public ResponseEntity<ErrorResponseDTO> handleTrafficTooHighException(TrafficTooHighException ex) {
+        ErrorResponseDTO errorResponse = new ErrorResponseDTO("SERVICE_UNAVAILABLE", ex.getMessage());
+        return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).body(errorResponse);
+    }
+
+    @ExceptionHandler(UserAlreadyExistsException.class)
+    public ResponseEntity<ErrorResponseDTO> handleUserAlreadyExistsException(UserAlreadyExistsException ex) {
+        ErrorResponseDTO errorResponse = new ErrorResponseDTO("BAD_REQUEST", ex.getMessage());
+        return ResponseEntity.badRequest().body(errorResponse);
     }
 }

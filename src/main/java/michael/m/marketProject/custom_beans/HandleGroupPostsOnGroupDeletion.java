@@ -3,7 +3,6 @@ package michael.m.marketProject.custom_beans;
 import lombok.RequiredArgsConstructor;
 import michael.m.marketProject.entity.UserGroup;
 import michael.m.marketProject.repository.ProductPostRepository;
-import michael.m.marketProject.repository.UserGroupRepository;
 
 @RequiredArgsConstructor
 public class HandleGroupPostsOnGroupDeletion {

@@ -5,17 +5,18 @@ import michael.m.marketProject.dto.user_group_dto.UserGroupListDTO;
 import michael.m.marketProject.dto.user_group_dto.UserGroupResponseDTO;
 import michael.m.marketProject.dto.user_group_dto.UserGroupUpdateDTO;
 import org.springframework.security.core.Authentication;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
 public interface UserGroupService {
-    UserGroupResponseDTO createUserGroup(UserGroupCreateDTO dto, Authentication authentication);
+    UserGroupResponseDTO createUserGroup(UserGroupCreateDTO dto, MultipartFile imageFile, Authentication authentication);
 
     UserGroupResponseDTO getUserGroupById(Long id, Authentication authentication);
 
     UserGroupListDTO getAllUserGroups(Authentication authentication,int pageNum, int pageSize, String sortDir, String... sortBy);
 
-    UserGroupResponseDTO updateUserGroupById(Long id, UserGroupUpdateDTO dto, Authentication authentication);
+    UserGroupResponseDTO updateUserGroupById(Long id, UserGroupUpdateDTO dto, Authentication authentication, MultipartFile imageFile);
 
     UserGroupResponseDTO deleteUserGroupById(Long id);
 

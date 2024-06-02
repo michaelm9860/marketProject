@@ -11,7 +11,10 @@ import michael.m.marketProject.service.product_post_service.ProductPostService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.util.UriComponentsBuilder;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/products")
@@ -34,10 +37,11 @@ public class ProductPostController {
     @PostMapping
     public ResponseEntity<ProductPostResponseDTO> createProductPost(
             Authentication authentication,
-            @RequestBody @Valid ProductPostCreateDTO dto,
+            @RequestPart("productPost") @Valid ProductPostCreateDTO dto,
+            @RequestPart("picturesFiles") List<MultipartFile> picturesFiles,
             UriComponentsBuilder uriBuilder){
 
-        var res = productPostService.createProductPost(dto, authentication);
+        var res = productPostService.createProductPost(dto, authentication, picturesFiles);
 
         var uri = uriBuilder.path("/api/v1/products/{id}").buildAndExpand(res.getId()).toUri();
         return ResponseEntity.created(uri).body(res);
@@ -52,8 +56,9 @@ public class ProductPostController {
     public ResponseEntity<ProductPostResponseDTO> updateProductPostById(
             Authentication authentication,
             @PathVariable Long id,
-            @RequestBody @Valid ProductPostUpdateDTO dto) {
-        return ResponseEntity.ok(productPostService.updateProductPostById(id, dto ,authentication));
+            @RequestPart("updateDetails") @Valid ProductPostUpdateDTO dto,
+            @RequestPart("picturesFiles") List<MultipartFile> picturesFiles){
+        return ResponseEntity.ok(productPostService.updateProductPostById(id, dto ,authentication, picturesFiles));
     }
 
     @PostMapping("/{id}/save")
@@ -71,10 +76,11 @@ public class ProductPostController {
     public ResponseEntity<ProductPostResponseDTO> createProductPostInGroup(
             Authentication authentication,
             @PathVariable Long groupId,
-            @RequestBody @Valid ProductPostCreateDTO dto,
+            @RequestPart("productPost") @Valid ProductPostCreateDTO dto,
+            @RequestPart("picturesFiles") List<MultipartFile> picturesFiles,
             UriComponentsBuilder uriBuilder){
 
-        var res = productPostService.createProductPostInGroup(dto, groupId, authentication);
+        var res = productPostService.createProductPostInGroup(dto, groupId, authentication, picturesFiles);
 
         var uri = uriBuilder.path("/api/v1/products/{id}").buildAndExpand(res.getId()).toUri();
         return ResponseEntity.created(uri).body(res);

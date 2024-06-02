@@ -1,4 +1,4 @@
-package michael.m.marketProject.service.jwt;
+package michael.m.marketProject.service.jwt_service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;

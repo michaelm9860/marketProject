@@ -11,6 +11,7 @@ import michael.m.marketProject.service.user_group_service.UserGroupService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
@@ -22,10 +23,11 @@ public class UserGroupController {
     @PostMapping
     public ResponseEntity<UserGroupResponseDTO> createUserGroup(
             Authentication authentication,
-            @RequestBody @Valid UserGroupCreateDTO dto,
+            @RequestPart("group") @Valid UserGroupCreateDTO dto,
+            @RequestPart("imageFile") MultipartFile imageFile,
             UriComponentsBuilder uriBuilder){
 
-        var res = userGroupService.createUserGroup(dto, authentication);
+        var res = userGroupService.createUserGroup(dto, imageFile, authentication);
 
         var uri = uriBuilder.path("/api/v1/groups/{id}").buildAndExpand(res.getId()).toUri();
         return ResponseEntity.created(uri).body(res);
@@ -50,8 +52,9 @@ public class UserGroupController {
     public ResponseEntity<UserGroupResponseDTO> updateUserGroupById(
             Authentication authentication,
             @PathVariable Long id,
-            @RequestBody @Valid UserGroupUpdateDTO dto){
-        return ResponseEntity.ok(userGroupService.updateUserGroupById(id, dto, authentication));
+            @RequestPart("updateDetails") @Valid UserGroupUpdateDTO dto,
+            @RequestPart(name = "imageFile", required = false) MultipartFile imageFile){
+        return ResponseEntity.ok(userGroupService.updateUserGroupById(id, dto, authentication, imageFile));
     }
 
     @DeleteMapping("/{id}")

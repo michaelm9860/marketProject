@@ -14,10 +14,12 @@ import michael.m.marketProject.error.ResourceNotFoundException;
 import michael.m.marketProject.repository.ProductPostRepository;
 import michael.m.marketProject.repository.UserGroupRepository;
 import michael.m.marketProject.repository.UserRepository;
+import michael.m.marketProject.service.file_storage_service.FileStorageService;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +39,8 @@ public class UserServiceImpl implements UserService {
     private final PropertyUpdater propertyUpdater;
     private final UserGroupRepository userGroupRepository;
     private final HandleGroupPostsOnGroupDeletion handleGroupPostsOnGroupDeletion;
+    private final FileStorageService fileStorageService;
+    private final HandleOldPicturesDeletionOnEntityChange handleOldPicturesDeletionOnEntityChange;
 
     @PreAuthorize("isAuthenticated()")
     @Override
@@ -74,6 +78,7 @@ public class UserServiceImpl implements UserService {
         }
 
         handleUserGroupsOnUserDeletion(user);
+        handleOldPicturesDeletionOnEntityChange.deleteOldImage(user.getProfilePicture());
 
         user.setSavedPostsIds(null);
         deleteAllUserPostsByUserId(id, authentication);
@@ -111,11 +116,17 @@ public class UserServiceImpl implements UserService {
     @PreAuthorize("isAuthenticated()")
     @Transactional
     @Override
-    public UserResponseDTO updateUserById(Long id, UserUpdateDTO dto, Authentication authentication) {
+    public UserResponseDTO updateUserById(Long id, UserUpdateDTO dto, Authentication authentication, MultipartFile profilePictureFile) {
         User user = getAuthenticatedRequestingUser.getRequestingUserEntityByAuthenticationOrThrow(authentication);
 
         if (!user.getId().equals(id)) {
             throw new EntityOwnershipException(user.getEmail(), "User", id);
+        }
+
+        if (profilePictureFile != null) {
+            handleOldPicturesDeletionOnEntityChange.deleteOldImage(user.getProfilePicture());
+            String fileName = fileStorageService.storeFile(profilePictureFile);
+            dto.setProfilePicture(fileName);
         }
 
         propertyUpdater.updateNonNullProperties(dto, user);
@@ -174,6 +185,7 @@ public class UserServiceImpl implements UserService {
         }
         if (userGroup.getGroupMembersIds().isEmpty()){
             handleGroupPostsOnGroupDeletion.handleGroupPostsOnGroupDeletion(userGroup);
+            handleOldPicturesDeletionOnEntityChange.deleteOldImage(userGroup.getImage());
             userGroupRepository.delete(userGroup);
         }else {
             userGroupRepository.save(userGroup);

@@ -2,10 +2,7 @@ package michael.m.marketProject.service.product_post_service;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import michael.m.marketProject.custom_beans.AdminRoleChecker;
-import michael.m.marketProject.custom_beans.GetAuthenticatedRequestingUser;
-import michael.m.marketProject.custom_beans.HandlePostDeletionFromSavedOnPostDeletion;
-import michael.m.marketProject.custom_beans.PropertyUpdater;
+import michael.m.marketProject.custom_beans.*;
 import michael.m.marketProject.dto.product_post_dto.ProductPostCreateDTO;
 import michael.m.marketProject.dto.product_post_dto.ProductPostListDTO;
 import michael.m.marketProject.dto.product_post_dto.ProductPostResponseDTO;
@@ -16,6 +13,7 @@ import michael.m.marketProject.error.*;
 import michael.m.marketProject.repository.ProductPostRepository;
 import michael.m.marketProject.repository.UserGroupRepository;
 import michael.m.marketProject.repository.UserRepository;
+import michael.m.marketProject.service.file_storage_service.FileStorageService;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -24,6 +22,7 @@ import org.springframework.orm.ObjectOptimisticLockingFailureException;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -40,15 +39,23 @@ public class ProductPostServiceImpl implements ProductPostService {
     private final HandlePostDeletionFromSavedOnPostDeletion handlePostDeletionFromSavedOnPostDeletion;
     private final PropertyUpdater propertyUpdater;
     private final UserGroupRepository userGroupRepository;
+    private final FileStorageService fileStorageService;
+    private final HandleOldPicturesDeletionOnEntityChange handleOldPicturesDeletionOnEntityChange;
 
     @PreAuthorize("isAuthenticated()")
     @Transactional
     @Override
-    public ProductPostResponseDTO createProductPost(ProductPostCreateDTO dto, Authentication authentication) {
+    public ProductPostResponseDTO createProductPost(ProductPostCreateDTO dto, Authentication authentication, List<MultipartFile> picturesFiles) {
         User user = getAuthenticatedRequestingUser.getRequestingUserEntityByAuthenticationOrThrow(authentication);
         if (dto.getLocation() == null){
             dto.setLocation(user.getLocation());
         }
+
+        for(MultipartFile file : picturesFiles) {
+            String fileName = fileStorageService.storeFile(file);
+            dto.getPictures().add(fileName);
+        }
+
         ProductPost productPost = modelMapper.map(dto, ProductPost.class);
         productPost.setUserId(user.getId());
 
@@ -119,13 +126,21 @@ public class ProductPostServiceImpl implements ProductPostService {
     @PreAuthorize("isAuthenticated()")
     @Transactional
     @Override
-    public ProductPostResponseDTO updateProductPostById(Long id, ProductPostUpdateDTO dto, Authentication authentication) {
+    public ProductPostResponseDTO updateProductPostById(Long id, ProductPostUpdateDTO dto, Authentication authentication, List<MultipartFile> picturesFiles) {
         User user = getAuthenticatedRequestingUser.getRequestingUserEntityByAuthenticationOrThrow(authentication);
 
         ProductPost post = getProductPostEntityOrThrow(id);
 
         if (!post.getUserId().equals(user.getId())) {
             throw new EntityOwnershipException(user.getEmail(), "ProductPost", post.getId());
+        }
+
+        if (picturesFiles != null && !picturesFiles.isEmpty()){
+            handleOldPicturesDeletionOnEntityChange.deleteOldImages(post.getPictures());
+            for(MultipartFile file : picturesFiles) {
+                String fileName = fileStorageService.storeFile(file);
+                dto.getPictures().add(fileName);
+            }
         }
 
         propertyUpdater.updateNonNullProperties(dto, post);
@@ -151,6 +166,7 @@ public class ProductPostServiceImpl implements ProductPostService {
         }
 
         handlePostDeletionFromSavedOnPostDeletion.handleUserSavedPostsOnPostDeletion(post.getId());
+        handleOldPicturesDeletionOnEntityChange.deleteOldImages(post.getPictures());
 
         productPostRepository.delete(post);
         return modelMapper.map(post, ProductPostResponseDTO.class);
@@ -198,7 +214,7 @@ public class ProductPostServiceImpl implements ProductPostService {
     }
 
     @Override
-    public ProductPostResponseDTO createProductPostInGroup(ProductPostCreateDTO dto, Long groupId, Authentication authentication) {
+    public ProductPostResponseDTO createProductPostInGroup(ProductPostCreateDTO dto, Long groupId, Authentication authentication, List<MultipartFile> picturesFiles) {
         User user = getAuthenticatedRequestingUser.getRequestingUserEntityByAuthenticationOrThrow(authentication);
         var group = userGroupRepository.findById(groupId)
                 .orElseThrow(() -> new ResourceNotFoundException("UserGroup", "id", groupId));
@@ -207,6 +223,10 @@ public class ProductPostServiceImpl implements ProductPostService {
         }
         if (dto.getLocation() == null){
             dto.setLocation(user.getLocation());
+        }
+        for(MultipartFile file : picturesFiles) {
+            String fileName = fileStorageService.storeFile(file);
+            dto.getPictures().add(fileName);
         }
         ProductPost productPost = modelMapper.map(dto, ProductPost.class);
         productPost.setGroupId(groupId);

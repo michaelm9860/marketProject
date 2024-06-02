@@ -2,10 +2,7 @@ package michael.m.marketProject.service.user_group_service;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import michael.m.marketProject.custom_beans.AdminRoleChecker;
-import michael.m.marketProject.custom_beans.GetAuthenticatedRequestingUser;
-import michael.m.marketProject.custom_beans.HandleGroupPostsOnGroupDeletion;
-import michael.m.marketProject.custom_beans.PropertyUpdater;
+import michael.m.marketProject.custom_beans.*;
 import michael.m.marketProject.dto.user_group_dto.UserGroupCreateDTO;
 import michael.m.marketProject.dto.user_group_dto.UserGroupListDTO;
 import michael.m.marketProject.dto.user_group_dto.UserGroupResponseDTO;
@@ -17,6 +14,7 @@ import michael.m.marketProject.error.PaginationException;
 import michael.m.marketProject.error.ResourceNotFoundException;
 import michael.m.marketProject.repository.UserGroupRepository;
 import michael.m.marketProject.repository.UserRepository;
+import michael.m.marketProject.service.file_storage_service.FileStorageService;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -24,6 +22,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -39,12 +38,18 @@ public class UserGroupServiceImpl implements UserGroupService {
     private final UserRepository userRepository;
     private final AdminRoleChecker adminRoleChecker;
     private final HandleGroupPostsOnGroupDeletion handleGroupPostsOnGroupDeletion;
+    private final FileStorageService fileStorageService;
+    private final HandleOldPicturesDeletionOnEntityChange handleOldPicturesDeletionOnEntityChange;
 
     @PreAuthorize("isAuthenticated()")
     @Transactional
     @Override
-    public UserGroupResponseDTO createUserGroup(UserGroupCreateDTO dto, Authentication authentication) {
+    public UserGroupResponseDTO createUserGroup(UserGroupCreateDTO dto, MultipartFile imageFile, Authentication authentication) {
         User user = getAuthenticatedRequestingUser.getRequestingUserEntityByAuthenticationOrThrow(authentication);
+
+        String fileName = fileStorageService.storeFile(imageFile);
+        dto.setImage(fileName);
+
         UserGroup userGroup = modelMapper.map(dto, UserGroup.class);
 
         userGroup.getGroupAdminsIds().add(user.getId());
@@ -85,10 +90,6 @@ public class UserGroupServiceImpl implements UserGroupService {
                 throw new PaginationException("Page Number " + pageNum + " Exceeds totalPages " + pr.getTotalPages());
             }
 
-//            List<UserGroupResponseDTO> groupListDto =
-//                    pr.getContent().stream()
-//                            .map(g -> modelMapper.map(g, UserGroupResponseDTO.class))
-//                            .collect(Collectors.toList());
             User user = getAuthenticatedRequestingUser.getRequestingUserEntityByAuthenticationOrThrow(authentication);
             Long userId = user.getId();
 
@@ -119,10 +120,16 @@ public class UserGroupServiceImpl implements UserGroupService {
     @PreAuthorize("isAuthenticated()")
     @Transactional
     @Override
-    public UserGroupResponseDTO updateUserGroupById(Long id, UserGroupUpdateDTO dto, Authentication authentication) {
+    public UserGroupResponseDTO updateUserGroupById(Long id, UserGroupUpdateDTO dto, Authentication authentication, MultipartFile imageFile) {
         User user = getAuthenticatedRequestingUser.getRequestingUserEntityByAuthenticationOrThrow(authentication);
         UserGroup userGroup = getUserGroupEntityOrThrow(id);
         userIsAdminOfGroup(user, userGroup);
+
+        if (imageFile != null) {
+            handleOldPicturesDeletionOnEntityChange.deleteOldImage(userGroup.getImage());
+            String fileName = fileStorageService.storeFile(imageFile);
+            dto.setImage(fileName);
+        }
 
         propertyUpdater.updateNonNullProperties(dto, userGroup);
 
@@ -138,6 +145,7 @@ public class UserGroupServiceImpl implements UserGroupService {
     public UserGroupResponseDTO deleteUserGroupById(Long id) {
         UserGroup userGroup = getUserGroupEntityOrThrow(id);
         handleGroupPostsOnGroupDeletion.handleGroupPostsOnGroupDeletion(userGroup);
+        handleOldPicturesDeletionOnEntityChange.deleteOldImage(userGroup.getImage());
         userGroupRepository.delete(userGroup);
         return modelMapper.map(userGroup, UserGroupResponseDTO.class);
     }

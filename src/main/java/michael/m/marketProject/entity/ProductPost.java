@@ -8,6 +8,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -31,7 +32,7 @@ public class ProductPost {
 
     @NotNull
     @ElementCollection(fetch = FetchType.EAGER)
-    private List<String> pictures;
+    private List<String> pictures = new ArrayList<>();
 
     @NotNull
     private int price;

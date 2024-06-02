@@ -6,6 +6,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @Builder
@@ -20,5 +23,6 @@ public class ProductPostUpdateDTO {
     @Size(min = 2, max = 32)
     private String location;
 
-    //TODO: Update to allow profile pic update
+    private List<String> pictures = new ArrayList<>();
+
 }

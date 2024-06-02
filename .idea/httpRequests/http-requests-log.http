@@ -1,0 +1,1126 @@
+POST http://localhost:8080/api/v1/products/group/1
+Authorization: bearer eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoidXNlcjFAdXNlci5jb20iLCJleHAiOjE3MTc0NDA0ODUsImlhdCI6MTcxNzM1NDA4NSwic2NvcGUiOiJST0xFX1VTRVIifQ.nL9HvKeAmOVeonDV8vpjd3lq1sJ5c-TSCOWtN4-Y5M_aUK2Xcgv90fcH19PpdRbmkfj8v4yO_qyHjSPeBY7py96U0iFrTwndVL7_SYzrcJZHuxr1sBywP4jKSPfyW1DFdzWbm-KeiN8fLZoZd6Hxhz5kcxZaMQ9MybzuwFlRt_ntzRY3mg9q6nQIPFGbzrqR3do1DaOlGQR0sLfVyW7RpJ0bkbnXis8wIbndS2XEy8tkUl1_Z2Lf6q21NBqygR5NlZENTfMlbDFnDu1zO3FFlmDdNcxopYz8h-c21BrXKCDNMlcn4rskWc1anuV4hYu680kA7w4wlATAPH1KXPJo2g
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Length: 17821
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="productPost"
+Content-Type: application/json
+
+{
+  "productName": "Product in group 1",
+  "description": "Product 1 description",
+  "price": 100,
+  "category": "Category 1"
+}
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="picturesFiles"; filename="post_pic_1.png"
+Content-Type: image/png
+
+< C:\Users\user\Desktop\dummy pictures for market project\post pic 1.png
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="picturesFiles"; filename="post_pic_2.png"
+Content-Type: image/png
+
+< C:\Users\user\Desktop\dummy pictures for market project\post pic 2.png
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="picturesFiles"; filename="post_pic_3.png"
+Content-Type: image/png
+
+< C:\Users\user\Desktop\dummy pictures for market project\post pic 3.png
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+<> 2024-06-02T233017.201.json
+
+###
+
+POST http://localhost:8080/api/v1/products
+Authorization: bearer eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoidXNlcjFAdXNlci5jb20iLCJleHAiOjE3MTc0NDA0ODUsImlhdCI6MTcxNzM1NDA4NSwic2NvcGUiOiJST0xFX1VTRVIifQ.nL9HvKeAmOVeonDV8vpjd3lq1sJ5c-TSCOWtN4-Y5M_aUK2Xcgv90fcH19PpdRbmkfj8v4yO_qyHjSPeBY7py96U0iFrTwndVL7_SYzrcJZHuxr1sBywP4jKSPfyW1DFdzWbm-KeiN8fLZoZd6Hxhz5kcxZaMQ9MybzuwFlRt_ntzRY3mg9q6nQIPFGbzrqR3do1DaOlGQR0sLfVyW7RpJ0bkbnXis8wIbndS2XEy8tkUl1_Z2Lf6q21NBqygR5NlZENTfMlbDFnDu1zO3FFlmDdNcxopYz8h-c21BrXKCDNMlcn4rskWc1anuV4hYu680kA7w4wlATAPH1KXPJo2g
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Length: 17812
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="productPost"
+Content-Type: application/json
+
+{
+  "productName": "Product 1",
+  "description": "Product 1 description",
+  "price": 100,
+  "category": "Category 1"
+}
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="picturesFiles"; filename="post_pic_1.png"
+Content-Type: image/png
+
+< C:\Users\user\Desktop\dummy pictures for market project\post pic 1.png
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="picturesFiles"; filename="post_pic_2.png"
+Content-Type: image/png
+
+< C:\Users\user\Desktop\dummy pictures for market project\post pic 2.png
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="picturesFiles"; filename="post_pic_3.png"
+Content-Type: image/png
+
+< C:\Users\user\Desktop\dummy pictures for market project\post pic 3.png
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+<> 2024-06-02T232752.201.json
+
+###
+
+POST http://localhost:8080/api/v1/products
+Authorization: bearer eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoidXNlcjFAdXNlci5jb20iLCJleHAiOjE3MTc0NDA0ODUsImlhdCI6MTcxNzM1NDA4NSwic2NvcGUiOiJST0xFX1VTRVIifQ.nL9HvKeAmOVeonDV8vpjd3lq1sJ5c-TSCOWtN4-Y5M_aUK2Xcgv90fcH19PpdRbmkfj8v4yO_qyHjSPeBY7py96U0iFrTwndVL7_SYzrcJZHuxr1sBywP4jKSPfyW1DFdzWbm-KeiN8fLZoZd6Hxhz5kcxZaMQ9MybzuwFlRt_ntzRY3mg9q6nQIPFGbzrqR3do1DaOlGQR0sLfVyW7RpJ0bkbnXis8wIbndS2XEy8tkUl1_Z2Lf6q21NBqygR5NlZENTfMlbDFnDu1zO3FFlmDdNcxopYz8h-c21BrXKCDNMlcn4rskWc1anuV4hYu680kA7w4wlATAPH1KXPJo2g
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Length: 17812
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="productPost"
+Content-Type: application/json
+
+{
+  "productName": "Product 1",
+  "description": "Product 1 description",
+  "price": 100,
+  "category": "Category 1"
+}
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="picturesFiles"; filename="post_pic_1.png"
+Content-Type: image/png
+
+< C:\Users\user\Desktop\dummy pictures for market project\post pic 1.png
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="picturesFiles"; filename="post_pic_2.png"
+Content-Type: image/png
+
+< C:\Users\user\Desktop\dummy pictures for market project\post pic 2.png
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="picturesFiles"; filename="post_pic_3.png"
+Content-Type: image/png
+
+< C:\Users\user\Desktop\dummy pictures for market project\post pic 3.png
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+<> 2024-06-02T232605.500.json
+
+###
+
+PUT http://localhost:8080/api/v1/groups/1
+Authorization: bearer eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoidXNlcjFAdXNlci5jb20iLCJleHAiOjE3MTc0NDA0ODUsImlhdCI6MTcxNzM1NDA4NSwic2NvcGUiOiJST0xFX1VTRVIifQ.nL9HvKeAmOVeonDV8vpjd3lq1sJ5c-TSCOWtN4-Y5M_aUK2Xcgv90fcH19PpdRbmkfj8v4yO_qyHjSPeBY7py96U0iFrTwndVL7_SYzrcJZHuxr1sBywP4jKSPfyW1DFdzWbm-KeiN8fLZoZd6Hxhz5kcxZaMQ9MybzuwFlRt_ntzRY3mg9q6nQIPFGbzrqR3do1DaOlGQR0sLfVyW7RpJ0bkbnXis8wIbndS2XEy8tkUl1_Z2Lf6q21NBqygR5NlZENTfMlbDFnDu1zO3FFlmDdNcxopYz8h-c21BrXKCDNMlcn4rskWc1anuV4hYu680kA7w4wlATAPH1KXPJo2g
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Length: 47636
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="updateDetails"
+Content-Type: application/json
+
+{
+  "name": "Group 1",
+  "description": "Group 1 description"
+}
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="imageFile"; filename="group_pic_2.png"
+Content-Type: image/png
+
+< C:\Users\user\Desktop\dummy pictures for market project\group pic 2.png
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+<> 2024-06-02T223914.200.json
+
+###
+
+PUT http://localhost:8080/api/v1/groups/1
+Authorization: bearer eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoidXNlcjFAdXNlci5jb20iLCJleHAiOjE3MTc0NDA0ODUsImlhdCI6MTcxNzM1NDA4NSwic2NvcGUiOiJST0xFX1VTRVIifQ.nL9HvKeAmOVeonDV8vpjd3lq1sJ5c-TSCOWtN4-Y5M_aUK2Xcgv90fcH19PpdRbmkfj8v4yO_qyHjSPeBY7py96U0iFrTwndVL7_SYzrcJZHuxr1sBywP4jKSPfyW1DFdzWbm-KeiN8fLZoZd6Hxhz5kcxZaMQ9MybzuwFlRt_ntzRY3mg9q6nQIPFGbzrqR3do1DaOlGQR0sLfVyW7RpJ0bkbnXis8wIbndS2XEy8tkUl1_Z2Lf6q21NBqygR5NlZENTfMlbDFnDu1zO3FFlmDdNcxopYz8h-c21BrXKCDNMlcn4rskWc1anuV4hYu680kA7w4wlATAPH1KXPJo2g
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Length: 272
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="updateDetails"
+Content-Type: application/json
+
+{
+  "name": "Group 1.2",
+  "description": "Group 1 description"
+}
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+<> 2024-06-02T223636.200.json
+
+###
+
+POST http://localhost:8080/api/v1/groups
+Authorization: bearer eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoidXNlcjFAdXNlci5jb20iLCJleHAiOjE3MTc0NDA0ODUsImlhdCI6MTcxNzM1NDA4NSwic2NvcGUiOiJST0xFX1VTRVIifQ.nL9HvKeAmOVeonDV8vpjd3lq1sJ5c-TSCOWtN4-Y5M_aUK2Xcgv90fcH19PpdRbmkfj8v4yO_qyHjSPeBY7py96U0iFrTwndVL7_SYzrcJZHuxr1sBywP4jKSPfyW1DFdzWbm-KeiN8fLZoZd6Hxhz5kcxZaMQ9MybzuwFlRt_ntzRY3mg9q6nQIPFGbzrqR3do1DaOlGQR0sLfVyW7RpJ0bkbnXis8wIbndS2XEy8tkUl1_Z2Lf6q21NBqygR5NlZENTfMlbDFnDu1zO3FFlmDdNcxopYz8h-c21BrXKCDNMlcn4rskWc1anuV4hYu680kA7w4wlATAPH1KXPJo2g
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Length: 4100
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="group"
+Content-Type: application/json
+
+{
+  "name": "Group 1",
+  "description": "Group 1 description"
+}
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="imageFile"; filename="default_group_image.png"
+Content-Type: image/png
+
+< C:\Users\user\Desktop\dummy pictures for market project\default group image.png
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+<> 2024-06-02T222403.201.json
+
+###
+
+POST http://localhost:8080/api/v1/groups
+Authorization: bearer eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoidXNlcjFAdXNlci5jb20iLCJleHAiOjE3MTc0NDA0ODUsImlhdCI6MTcxNzM1NDA4NSwic2NvcGUiOiJST0xFX1VTRVIifQ.nL9HvKeAmOVeonDV8vpjd3lq1sJ5c-TSCOWtN4-Y5M_aUK2Xcgv90fcH19PpdRbmkfj8v4yO_qyHjSPeBY7py96U0iFrTwndVL7_SYzrcJZHuxr1sBywP4jKSPfyW1DFdzWbm-KeiN8fLZoZd6Hxhz5kcxZaMQ9MybzuwFlRt_ntzRY3mg9q6nQIPFGbzrqR3do1DaOlGQR0sLfVyW7RpJ0bkbnXis8wIbndS2XEy8tkUl1_Z2Lf6q21NBqygR5NlZENTfMlbDFnDu1zO3FFlmDdNcxopYz8h-c21BrXKCDNMlcn4rskWc1anuV4hYu680kA7w4wlATAPH1KXPJo2g
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Length: 13765
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="group"
+Content-Type: application/json
+
+{
+  "name": "Group 1",
+  "description": "Group 1 description"
+}
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="image"; filename="default_user_pfp.jpg"
+Content-Type: image/jpeg
+
+< C:\Users\user\Desktop\dummy pictures for market project\default user pfp.jpg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+<> 2024-06-02T221059.500.json
+
+###
+
+POST http://localhost:8080/api/v1/groups
+Authorization: bearer eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoidXNlcjFAdXNlci5jb20iLCJleHAiOjE3MTc0NDA0ODUsImlhdCI6MTcxNzM1NDA4NSwic2NvcGUiOiJST0xFX1VTRVIifQ.nL9HvKeAmOVeonDV8vpjd3lq1sJ5c-TSCOWtN4-Y5M_aUK2Xcgv90fcH19PpdRbmkfj8v4yO_qyHjSPeBY7py96U0iFrTwndVL7_SYzrcJZHuxr1sBywP4jKSPfyW1DFdzWbm-KeiN8fLZoZd6Hxhz5kcxZaMQ9MybzuwFlRt_ntzRY3mg9q6nQIPFGbzrqR3do1DaOlGQR0sLfVyW7RpJ0bkbnXis8wIbndS2XEy8tkUl1_Z2Lf6q21NBqygR5NlZENTfMlbDFnDu1zO3FFlmDdNcxopYz8h-c21BrXKCDNMlcn4rskWc1anuV4hYu680kA7w4wlATAPH1KXPJo2g
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Length: 4096
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="group"
+Content-Type: application/json
+
+{
+  "name": "Group 1",
+  "description": "Group 1 description"
+}
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="image"; filename="default_group_image.png"
+Content-Type: image/png
+
+< C:\Users\user\Desktop\dummy pictures for market project\default group image.png
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+<> 2024-06-02T220630.500.json
+
+###
+
+POST http://localhost:8080/api/v1/groups
+Authorization: bearer eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoidXNlcjFAdXNlci5jb20iLCJleHAiOjE3MTc0NDA0ODUsImlhdCI6MTcxNzM1NDA4NSwic2NvcGUiOiJST0xFX1VTRVIifQ.nL9HvKeAmOVeonDV8vpjd3lq1sJ5c-TSCOWtN4-Y5M_aUK2Xcgv90fcH19PpdRbmkfj8v4yO_qyHjSPeBY7py96U0iFrTwndVL7_SYzrcJZHuxr1sBywP4jKSPfyW1DFdzWbm-KeiN8fLZoZd6Hxhz5kcxZaMQ9MybzuwFlRt_ntzRY3mg9q6nQIPFGbzrqR3do1DaOlGQR0sLfVyW7RpJ0bkbnXis8wIbndS2XEy8tkUl1_Z2Lf6q21NBqygR5NlZENTfMlbDFnDu1zO3FFlmDdNcxopYz8h-c21BrXKCDNMlcn4rskWc1anuV4hYu680kA7w4wlATAPH1KXPJo2g
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Length: 4096
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="group"
+Content-Type: application/json
+
+{
+  "name": "Group 1",
+  "description": "Group 1 description"
+}
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="image"; filename="default_group_image.png"
+Content-Type: image/png
+
+< C:\Users\user\Desktop\dummy pictures for market project\default group image.png
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+<> 2024-06-02T220133.500.json
+
+###
+
+POST http://localhost:8080/api/v1/groups
+Authorization: bearer eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoidXNlcjFAdXNlci5jb20iLCJleHAiOjE3MTc0NDA0ODUsImlhdCI6MTcxNzM1NDA4NSwic2NvcGUiOiJST0xFX1VTRVIifQ.nL9HvKeAmOVeonDV8vpjd3lq1sJ5c-TSCOWtN4-Y5M_aUK2Xcgv90fcH19PpdRbmkfj8v4yO_qyHjSPeBY7py96U0iFrTwndVL7_SYzrcJZHuxr1sBywP4jKSPfyW1DFdzWbm-KeiN8fLZoZd6Hxhz5kcxZaMQ9MybzuwFlRt_ntzRY3mg9q6nQIPFGbzrqR3do1DaOlGQR0sLfVyW7RpJ0bkbnXis8wIbndS2XEy8tkUl1_Z2Lf6q21NBqygR5NlZENTfMlbDFnDu1zO3FFlmDdNcxopYz8h-c21BrXKCDNMlcn4rskWc1anuV4hYu680kA7w4wlATAPH1KXPJo2g
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Length: 4096
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="group"
+Content-Type: application/json
+
+{
+  "name": "Group 1",
+  "description": "Group 1 description"
+}
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="image"; filename="default_group_image.png"
+Content-Type: image/png
+
+< C:\Users\user\Desktop\dummy pictures for market project\default group image.png
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+<> 2024-06-02T220126.500.json
+
+###
+
+POST http://localhost:8080/api/v1/auth/register
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Length: 13888
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="user"
+Content-Type: application/json
+
+{
+  "firstName": "user4",
+  "lastName": "UserFourth",
+  "phoneNumber": "+12304567891",
+  "email": "smthelse@smth.smth",
+  "location": "Jupiter",
+  "password": "12345678Aa!"
+}
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="profilePictureFile"; filename="default_user_pfp.jpg"
+Content-Type: image/jpeg
+
+< C:\Users\user\Desktop\dummy pictures for market project\default user pfp.jpg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+<> 2024-06-02T215723.201.json
+
+###
+
+POST http://localhost:8080/api/v1/groups
+Authorization: bearer eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoidXNlcjFAdXNlci5jb20iLCJleHAiOjE3MTc0NDA0ODUsImlhdCI6MTcxNzM1NDA4NSwic2NvcGUiOiJST0xFX1VTRVIifQ.nL9HvKeAmOVeonDV8vpjd3lq1sJ5c-TSCOWtN4-Y5M_aUK2Xcgv90fcH19PpdRbmkfj8v4yO_qyHjSPeBY7py96U0iFrTwndVL7_SYzrcJZHuxr1sBywP4jKSPfyW1DFdzWbm-KeiN8fLZoZd6Hxhz5kcxZaMQ9MybzuwFlRt_ntzRY3mg9q6nQIPFGbzrqR3do1DaOlGQR0sLfVyW7RpJ0bkbnXis8wIbndS2XEy8tkUl1_Z2Lf6q21NBqygR5NlZENTfMlbDFnDu1zO3FFlmDdNcxopYz8h-c21BrXKCDNMlcn4rskWc1anuV4hYu680kA7w4wlATAPH1KXPJo2g
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Length: 4096
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="group"
+Content-Type: application/json
+
+{
+  "name": "Group 1",
+  "description": "Group 1 description"
+}
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="image"; filename="default_group_image.png"
+Content-Type: image/png
+
+< C:\Users\user\Desktop\dummy pictures for market project\default group image.png
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+<> 2024-06-02T215212.500.json
+
+###
+
+POST http://localhost:8080/api/v1/auth/login
+Content-Type: application/json
+Content-Length: 59
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "email": "user1@user.com",
+  "password": "Passw0rd1!"
+}
+
+<> 2024-06-02T214805.200.json
+
+###
+
+PUT http://localhost:8080/api/v1/users/3
+Authorization: bearer eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoic210aEBzbXRoLnNtdGgiLCJleHAiOjE3MTc0Mzk0ODAsImlhdCI6MTcxNzM1MzA4MCwic2NvcGUiOiJST0xFX1VTRVIifQ.lGw7EGvnLNfSBdWAtdkhsWHvOojgUJ68N7aGILtemC1PY2EMNJ-8ftcHtE4KVqVj4JnuN1D1eZFRSpvVI2ghAjPiZ_R0wUhsYNTaT53ewe20T6skmWZCDPQTG1VOACaTBls-uaQ3VHgNWZwHztdpChAiV59FKmPLmEh1D--HRlKCR_Yb08bmHC7XO-rYHZ89Y_M4L59ao3I5KqMQwFJqe8EHjDd2jhM6fPufZcrXX5fdv-pOPkE4T5R7jvYO0nLFcw_yLdxXiq6ixRxL3f5f-doGjekE9Os9CER8wEjqXGG8nxzWq92ypV_8_BcwqqfADbTpSkybeaOw7nOJ7ZNXmg
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Length: 9260
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="updateDetails"
+Content-Type: application/json
+
+{
+  "firstName": "user3.2.2",
+  "lastName": "UserThird"
+
+}
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="profilePictureFile"; filename="default_user_pfp.jpg"
+Content-Type: image/jpeg
+
+< C:\Users\user\Desktop\dummy pictures for market project\user pic 2.jpg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+<> 2024-06-02T213937.200.json
+
+###
+
+PUT http://localhost:8080/api/v1/users/3
+Authorization: bearer eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoic210aEBzbXRoLnNtdGgiLCJleHAiOjE3MTc0Mzk0ODAsImlhdCI6MTcxNzM1MzA4MCwic2NvcGUiOiJST0xFX1VTRVIifQ.lGw7EGvnLNfSBdWAtdkhsWHvOojgUJ68N7aGILtemC1PY2EMNJ-8ftcHtE4KVqVj4JnuN1D1eZFRSpvVI2ghAjPiZ_R0wUhsYNTaT53ewe20T6skmWZCDPQTG1VOACaTBls-uaQ3VHgNWZwHztdpChAiV59FKmPLmEh1D--HRlKCR_Yb08bmHC7XO-rYHZ89Y_M4L59ao3I5KqMQwFJqe8EHjDd2jhM6fPufZcrXX5fdv-pOPkE4T5R7jvYO0nLFcw_yLdxXiq6ixRxL3f5f-doGjekE9Os9CER8wEjqXGG8nxzWq92ypV_8_BcwqqfADbTpSkybeaOw7nOJ7ZNXmg
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Length: 263
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="updateDetails"
+Content-Type: application/json
+
+{
+  "firstName": "user3.2",
+  "lastName": "UserThird"
+
+}
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+<> 2024-06-02T213727.200.json
+
+###
+
+PUT http://localhost:8080/api/v1/users/3
+Authorization: bearer eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoic210aEBzbXRoLnNtdGgiLCJleHAiOjE3MTc0Mzk0ODAsImlhdCI6MTcxNzM1MzA4MCwic2NvcGUiOiJST0xFX1VTRVIifQ.lGw7EGvnLNfSBdWAtdkhsWHvOojgUJ68N7aGILtemC1PY2EMNJ-8ftcHtE4KVqVj4JnuN1D1eZFRSpvVI2ghAjPiZ_R0wUhsYNTaT53ewe20T6skmWZCDPQTG1VOACaTBls-uaQ3VHgNWZwHztdpChAiV59FKmPLmEh1D--HRlKCR_Yb08bmHC7XO-rYHZ89Y_M4L59ao3I5KqMQwFJqe8EHjDd2jhM6fPufZcrXX5fdv-pOPkE4T5R7jvYO0nLFcw_yLdxXiq6ixRxL3f5f-doGjekE9Os9CER8wEjqXGG8nxzWq92ypV_8_BcwqqfADbTpSkybeaOw7nOJ7ZNXmg
+Content-Type: application/json
+Content-Length: 55
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "firstName": "user3.2",
+  "lastName": "UserThird"
+}
+
+<> 2024-06-02T213251.500.json
+
+###
+
+POST http://localhost:8080/api/v1/auth/login
+Content-Type: application/json
+Content-Length: 60
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "email": "smth@smth.smth",
+  "password": "12345678Aa!"
+}
+
+<> 2024-06-02T213120.200.json
+
+###
+
+POST http://localhost:8080/api/v1/auth/register
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Length: 13883
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="user"
+Content-Type: application/json
+
+{
+  "firstName": "user3",
+  "lastName": "UserThird",
+  "phoneNumber": "+12304567890",
+  "email": "smth@smth.smth",
+  "location": "Jupiter",
+  "password": "12345678Aa!"
+}
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="profilePictureFile"; filename="default_user_pfp.jpg"
+Content-Type: image/jpeg
+
+< C:\Users\user\Desktop\dummy pictures for market project\default user pfp.jpg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+<> 2024-06-02T213057.201.json
+
+###
+
+GET http://localhost:8080/api/v1/users/3
+Authorization: bearer eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoiYWRtaW4xQGFkbWluLmNvbSIsImV4cCI6MTcxNzQzNTYyMiwiaWF0IjoxNzE3MzQ5MjIyLCJzY29wZSI6IlJPTEVfQURNSU4ifQ.H2WiLEpJu8YBCGiQxcP_xCHRneyAPorrxfttmowqOtvAwasYlVMm5sl7HW5gWeUT0pSa3Ue82uMSv3u19oGRT3UgOZ4ex56C7ef98gYrqwoSZnigSsMvENOHLk80oC9wFGLrb46qQOer6TqGcI1VrQI-KtLodx4HwzEyIBzl47JVA_M-YEIwuxcsLBeLz1BMKYXMeg0hbQmSF57Qkx6yLQOumquLukMQvCV13y0zU6_7VQeHHBfJP4d-CbAW2W3wovoOTQgnD0zcsTNaCMP3MHIKult_Ssjq8pJ78ic6duWtYYiU_F4uPJsrSvhRix7JMMlvOYIrGNd7NBp-s5wasg
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-06-02T212943.404.json
+
+###
+
+POST http://localhost:8080/api/v1/auth/login
+Content-Type: application/json
+Content-Length: 60
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "email": "smth@smth.smth",
+  "password": "12345678Aa!"
+}
+
+<> 2024-06-02T212805.200.json
+
+###
+
+POST http://localhost:8080/api/v1/auth/login
+Content-Type: application/json
+Content-Length: 61
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "email": "smth@smth.smt4h",
+  "password": "12345678Aa!"
+}
+
+<> 2024-06-02T212801.401.json
+
+###
+
+POST http://localhost:8080/api/v1/auth/login
+Content-Type: application/json
+Content-Length: 59
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "email": "smth@smth.smth",
+  "password": "Passw0rd1!"
+}
+
+<> 2024-06-02T212229.401.json
+
+###
+
+POST http://localhost:8080/api/v1/auth/login
+Content-Type: application/json
+Content-Length: 58
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "email": "smth@smth.com",
+  "password": "Passw0rd1!"
+}
+
+<> 2024-06-02T212207.404.json
+
+###
+
+POST http://localhost:8080/api/v1/auth/register
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Length: 13883
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="user"
+Content-Type: application/json
+
+{
+  "firstName": "user3",
+  "lastName": "UserThird",
+  "phoneNumber": "+12304567890",
+  "email": "smth@smth.smth",
+  "location": "Jupiter",
+  "password": "12345678Aa!"
+}
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="profilePictureFile"; filename="default_user_pfp.jpg"
+Content-Type: image/jpeg
+
+< C:\Users\user\Desktop\dummy pictures for market project\default user pfp.jpg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+<> 2024-06-02T212135.201.json
+
+###
+
+POST http://localhost:8080/api/v1/auth/login
+Content-Type: application/json
+Content-Length: 60
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "email": "admin1@admin.com",
+  "password": "Passwrd1!"
+}
+
+<> 2024-06-02T212121.401.json
+
+###
+
+POST http://localhost:8080/api/v1/auth/login
+Content-Type: application/json
+Content-Length: 60
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "email": "admin@admin.com",
+  "password": "Passw0rd1!"
+}
+
+<> 2024-06-02T212113.404.json
+
+###
+
+POST http://localhost:8080/api/v1/auth/login
+Content-Type: application/json
+Content-Length: 55
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "email": "@admin.com",
+  "password": "Passw0rd1!"
+}
+
+<> 2024-06-02T212102.404.json
+
+###
+
+POST http://localhost:8080/api/v1/auth/login
+Content-Type: application/json
+Content-Length: 55
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "email": "@admin.com",
+  "password": "Passw0rd1!"
+}
+
+<> 2024-06-02T211800.500.json
+
+###
+
+DELETE http://localhost:8080/api/v1/users/9
+Authorization: bearer eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoiYWRtaW4xQGFkbWluLmNvbSIsImV4cCI6MTcxNzQzNTYyMiwiaWF0IjoxNzE3MzQ5MjIyLCJzY29wZSI6IlJPTEVfQURNSU4ifQ.H2WiLEpJu8YBCGiQxcP_xCHRneyAPorrxfttmowqOtvAwasYlVMm5sl7HW5gWeUT0pSa3Ue82uMSv3u19oGRT3UgOZ4ex56C7ef98gYrqwoSZnigSsMvENOHLk80oC9wFGLrb46qQOer6TqGcI1VrQI-KtLodx4HwzEyIBzl47JVA_M-YEIwuxcsLBeLz1BMKYXMeg0hbQmSF57Qkx6yLQOumquLukMQvCV13y0zU6_7VQeHHBfJP4d-CbAW2W3wovoOTQgnD0zcsTNaCMP3MHIKult_Ssjq8pJ78ic6duWtYYiU_F4uPJsrSvhRix7JMMlvOYIrGNd7NBp-s5wasg
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-06-02T211745.404.json
+
+###
+
+POST http://localhost:8080/api/v1/auth/login
+Content-Type: application/json
+Content-Length: 55
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "email": "@admin.com",
+  "password": "Passw0rd1!"
+}
+
+<> 2024-06-02T211727.500.json
+
+###
+
+POST http://localhost:8080/api/v1/auth/login
+Content-Type: application/json
+Content-Length: 57
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "email": "n1@admin.com",
+  "password": "Passw0rd1!"
+}
+
+<> 2024-06-02T210247.500.json
+
+###
+
+POST http://localhost:8080/api/v1/auth/login
+Content-Type: application/json
+Content-Length: 61
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "email": "admin1@admin.com",
+  "password": "Passw0rd1!"
+}
+
+<> 2024-06-02T210045.200.json
+
+###
+
+POST http://localhost:8080/api/v1/auth/login
+Content-Type: application/json
+Content-Length: 60
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "email": "smth@smth.smth",
+  "password": "12345678Aa!"
+}
+
+<> 2024-06-02T210022.500.json
+
+###
+
+DELETE http://localhost:8080/api/v1/users/3
+Authorization: bearer eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoiYWRtaW4xQGFkbWluLmNvbSIsImV4cCI6MTcxNzQzNTYyMiwiaWF0IjoxNzE3MzQ5MjIyLCJzY29wZSI6IlJPTEVfQURNSU4ifQ.H2WiLEpJu8YBCGiQxcP_xCHRneyAPorrxfttmowqOtvAwasYlVMm5sl7HW5gWeUT0pSa3Ue82uMSv3u19oGRT3UgOZ4ex56C7ef98gYrqwoSZnigSsMvENOHLk80oC9wFGLrb46qQOer6TqGcI1VrQI-KtLodx4HwzEyIBzl47JVA_M-YEIwuxcsLBeLz1BMKYXMeg0hbQmSF57Qkx6yLQOumquLukMQvCV13y0zU6_7VQeHHBfJP4d-CbAW2W3wovoOTQgnD0zcsTNaCMP3MHIKult_Ssjq8pJ78ic6duWtYYiU_F4uPJsrSvhRix7JMMlvOYIrGNd7NBp-s5wasg
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-06-02T203821.200.json
+
+###
+
+POST http://localhost:8080/api/v1/auth/register
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Length: 13883
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="user"
+Content-Type: application/json
+
+{
+  "firstName": "user3",
+  "lastName": "UserThird",
+  "phoneNumber": "+12304567890",
+  "email": "smth@smth.smth",
+  "location": "Jupiter",
+  "password": "12345678Aa!"
+}
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="profilePictureFile"; filename="default_user_pfp.jpg"
+Content-Type: image/jpeg
+
+< C:\Users\user\Desktop\dummy pictures for market project\default user pfp.jpg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+<> 2024-06-02T203703.201.json
+
+###
+
+GET http://localhost:8080/api/v1/users/3
+Authorization: bearer eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoiYWRtaW4xQGFkbWluLmNvbSIsImV4cCI6MTcxNzQzNTYyMiwiaWF0IjoxNzE3MzQ5MjIyLCJzY29wZSI6IlJPTEVfQURNSU4ifQ.H2WiLEpJu8YBCGiQxcP_xCHRneyAPorrxfttmowqOtvAwasYlVMm5sl7HW5gWeUT0pSa3Ue82uMSv3u19oGRT3UgOZ4ex56C7ef98gYrqwoSZnigSsMvENOHLk80oC9wFGLrb46qQOer6TqGcI1VrQI-KtLodx4HwzEyIBzl47JVA_M-YEIwuxcsLBeLz1BMKYXMeg0hbQmSF57Qkx6yLQOumquLukMQvCV13y0zU6_7VQeHHBfJP4d-CbAW2W3wovoOTQgnD0zcsTNaCMP3MHIKult_Ssjq8pJ78ic6duWtYYiU_F4uPJsrSvhRix7JMMlvOYIrGNd7NBp-s5wasg
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-06-02T202835.200.json
+
+###
+
+POST http://localhost:8080/api/v1/auth/login
+Content-Type: application/json
+Content-Length: 61
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "email": "admin1@admin.com",
+  "password": "Passw0rd1!"
+}
+
+<> 2024-06-02T202702.200.json
+
+###
+
+POST http://localhost:8080/api/v1/auth/register
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Length: 13883
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="user"
+Content-Type: application/json
+
+{
+  "firstName": "user3",
+  "lastName": "UserThird",
+  "phoneNumber": "+12304567890",
+  "email": "smth@smth.smth",
+  "location": "Jupiter",
+  "password": "12345678Aa!"
+}
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="profilePictureFile"; filename="default_user_pfp.jpg"
+Content-Type: image/jpeg
+
+< C:\Users\user\Desktop\dummy pictures for market project\default user pfp.jpg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+<> 2024-06-02T202221.201.json
+
+###
+
+POST http://localhost:8080/api/v1/auth/register
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Length: 13883
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="user"
+Content-Type: application/json
+
+{
+  "firstName": "user3",
+  "lastName": "UserThird",
+  "phoneNumber": "+12304567890",
+  "email": "smth@smth.smth",
+  "location": "Jupiter",
+  "password": "12345678Aa!"
+}
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="profilePictureFile"; filename="default_user_pfp.jpg"
+Content-Type: image/jpeg
+
+< C:\Users\user\Desktop\dummy pictures for market project\default user pfp.jpg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+<> 2024-06-02T202030.500.json
+
+###
+
+POST http://localhost:8080/api/v1/auth/register
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Length: 13883
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="user"
+Content-Type: application/json
+
+{
+  "firstName": "user3",
+  "lastName": "UserThird",
+  "phoneNumber": "+12304567890",
+  "email": "smth@smth.smth",
+  "location": "Jupiter",
+  "password": "12345678Aa!"
+}
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="profilePictureFile"; filename="default_user_pfp.jpg"
+Content-Type: image/jpeg
+
+< C:\Users\user\Desktop\dummy pictures for market project\default user pfp.jpg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+<> 2024-06-02T202005.500.json
+
+###
+
+POST http://localhost:8080/api/v1/auth/register
+Content-Type: multipart/form-data; boundary=boundary
+Content-Length: 13796
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+--boundary
+Content-Disposition: form-data; name="user"
+Content-Type: application/json
+
+{
+  "firstName": "user3",
+  "lastName": "UserThird",
+  "phoneNumber": "+12304567890",
+  "email": "smth@smth.smth",
+  "location": "Jupiter",
+  "password": "12345678Aa!"
+}
+--boundary
+Content-Disposition: form-data; name="profilePictureFile"; filename="default_user_pfp.jpg"
+Content-Type: image/jpeg
+
+< C:\Users\user\Desktop\dummy pictures for market project\default user pfp.jpg
+--boundary--
+
+<> 2024-06-02T201132.500.json
+
+###
+
+POST http://localhost:8080/api/v1/auth/register
+Content-Type: multipart/form-data
+Content-Length: 309
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+profilePictureFile="@C:\Users\user\Desktop\dummy pictures for market project\default user pfp.jpg"'
+
+user={
+    "firstName": "user3",
+    "lastName": "UserThird",
+    "phoneNumber": "+12304567890",
+    "email": "smth@smth.smth",
+    "location": "Jupiter",
+    "password": "12345678Aa!"
+};type=application/json
+
+<> 2024-06-02T200743.500.json
+
+###
+
+POST http://localhost:8080/api/v1/auth/register
+Content-Type: multipart/form-data
+Content-Length: 308
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+profilePictureFile="C:\Users\user\Desktop\dummy pictures for market project\default user pfp.jpg"'
+
+user={
+    "firstName": "user3",
+    "lastName": "UserThird",
+    "phoneNumber": "+12304567890",
+    "email": "smth@smth.smth",
+    "location": "Jupiter",
+    "password": "12345678Aa!"
+};type=application/json
+
+<> 2024-06-02T200526.500.json
+
+###
+
+POST http://localhost:8080/api/v1/auth/register
+Content-Type: multipart/form-data; boundary=--boundary
+Content-Length: 422
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+--boundary
+Content-Disposition: form-data; name="user"
+Content-Type: application/json
+
+{
+  "firstName": "user3",
+  "lastName": "UserThird",
+  "phoneNumber": "+12304567890",
+  "email": "smth@smth.smth",
+  "location": "Jupiter",
+  "password": "12345678Aa!"
+}
+--boundary
+Content-Disposition: form-data; name="profilePictureFile"; filename="default_user_pfp.jpg"
+Content-Type: image/jpeg
+
+<binary data of the file>
+--boundary-
+
+<> 2024-06-02T195647.500.json
+
+###
+
+POST http://localhost:8080/api/v1/auth/register
+Content-Type: multipart/form-data
+Content-Length: 423
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+--boundary
+Content-Disposition: form-data; name="user"
+Content-Type: application/json
+
+{
+  "firstName": "user3",
+  "lastName": "UserThird",
+  "phoneNumber": "+12304567890",
+  "email": "smth@smth.smth",
+  "location": "Jupiter",
+  "password": "12345678Aa!"
+}
+--boundary
+Content-Disposition: form-data; name="profilePictureFile"; filename="default_user_pfp.jpg"
+Content-Type: image/jpeg
+
+<binary data of the file>
+--boundary--
+
+<> 2024-06-02T194137.500.json
+
+###
+
+POST http://localhost:8080/api/v1/auth/register
+Content-Type: application/json
+Content-Length: 278
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "firstName": "user3",
+  "lastName": "UserThird",
+  "profilePictureFile": "C:\\Users\\user\\Desktop\\dummy pictures for market project\\default user pfp.jpg",
+  "phoneNumber": "+12304567890",
+  "email": "smth@smth.smth",
+  "location": "Jupiter",
+  "password": "12345678Aa!"
+}
+
+<> 2024-06-02T192124.500.json
+
+###
+
+POST http://localhost:8080/api/v1/auth/register
+Content-Type: application/json
+Content-Length: 278
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "firstName": "user3",
+  "lastName": "UserThird",
+  "profilePictureFile": "C:\\Users\\user\\Desktop\\dummy pictures for market project\\default user pfp.jpg",
+  "phoneNumber": "+12304567890",
+  "email": "smth@smth.smth",
+  "location": "Jupiter",
+  "password": "12345678Aa!"
+}
+
+<> 2024-06-02T191203.400.json
+
+###
+
+POST http://localhost:8080/api/v1/auth/register
+Content-Type: application/json
+Content-Length: 215
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "firstName": "user3",
+  "lastName": "UserThird",
+  "profilePicture": "https://www.google.com",
+  "phoneNumber": "+12304567890",
+  "email": "smth@smth.smth",
+  "location": "Jupiter",
+  "password": "12345678Aa!"
+}
+
+<> 2024-06-02T164626.201.json
+
+###
+
+POST http://localhost:8080/api/v1/auth/register
+Content-Type: application/json
+Content-Length: 214
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "firstName": "user3",
+  "lastName": "UserThird",
+  "profilePicture": "https://www.google.com",
+  "phoneNumber": "12304567890",
+  "email": "smth@smth.smth",
+  "location": "Jupiter",
+  "password": "12345678Aa!"
+}
+
+<> 2024-06-02T164618.400.json
+
+###
+
+POST http://localhost:8080/api/v1/products
+Authorization: bearer eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoidXNlcjFAdXNlci5jb20iLCJleHAiOjE3MTk4NTg5NzgsImlhdCI6MTcxNzI2Njk3OCwic2NvcGUiOiJST0xFX1VTRVIifQ.Psgd46qVKG73Ea7ciCu_MU14TdnmLAnKpxjplkxfnSZeasnfTTncm6eIiGdF3W03i6PX7Etwb-QLyza_Bu-RQWhY29tVjZwUNjGIOh4NwaVLSvxigcMLSY125r_lyieSWMiKR2BYRE_LCG_nsj-JBoZp8NIohaMoJKMWf5gOubfVZop3_shsiTXZ4SowZx4Q38dbRJ2D_iHcITFJB-jBvtgJbp2K6lwCTSVtjY3jUsDhBog_sZ089TsjTAkgHdG8-lf7FHLnipQaLQZGRqeWH2dxSkHpuxcc-k5tx3flYzKxwEBl4HvZVi_xnYXsbvOj_Itof8AqDA_twBjTNsNkqQ
+Content-Type: application/json
+Content-Length: 166
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "productName": "Product B2ec8",
+  "description": "Product 1 description",
+  "pictures": ["https://www.google.com"],
+  "price": 100,
+  "category": "Category 1"
+
+
+}
+
+<> 2024-06-01T215425.201.json
+
+###
+

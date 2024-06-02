@@ -8,6 +8,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -25,8 +26,7 @@ public class ProductPostCreateDTO {
     @Column(length = 512)
     private String description;
 
-    @NotNull
-    private List<String> pictures;
+    private List<String> pictures = new ArrayList<>();
 
     @NotNull
     private int price;
@@ -37,6 +37,4 @@ public class ProductPostCreateDTO {
 
     @Size(min = 2, max = 32)
     private String location;
-
-//    private Long groupId;
 }

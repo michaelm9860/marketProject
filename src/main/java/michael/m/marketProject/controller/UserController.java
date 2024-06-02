@@ -1,5 +1,6 @@
 package michael.m.marketProject.controller;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 import michael.m.marketProject.dto.product_post_dto.ProductPostResponseDTO;
@@ -9,6 +10,7 @@ import michael.m.marketProject.service.user_service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -39,8 +41,12 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<UserResponseDTO> updateUserById(@PathVariable Long id, @RequestBody UserUpdateDTO dto, Authentication authentication) {
-        return ResponseEntity.ok(userService.updateUserById(id, dto, authentication));
+    public ResponseEntity<UserResponseDTO> updateUserById(
+            @PathVariable Long id,
+            @RequestPart("updateDetails") @Valid UserUpdateDTO dto,
+            @RequestPart(name = "profilePictureFile", required = false) MultipartFile profilePictureFile,
+            Authentication authentication) {
+        return ResponseEntity.ok(userService.updateUserById(id, dto, authentication, profilePictureFile));
     }
 
     @DeleteMapping("/{id}")

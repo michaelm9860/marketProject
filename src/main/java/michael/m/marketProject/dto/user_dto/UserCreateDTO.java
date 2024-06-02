@@ -1,14 +1,16 @@
 package michael.m.marketProject.dto.user_dto;
 
-import jakarta.persistence.Column;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.Setter;
+import org.springframework.web.multipart.MultipartFile;
 
 @Getter
+@Setter
 @AllArgsConstructor
 public class UserCreateDTO {
     @NotNull
@@ -19,12 +21,9 @@ public class UserCreateDTO {
     @Size(min = 2, max = 24)
     private String lastName;
 
-    @NotNull
-    @Column(name = "profile_picture")
     private String profilePicture;
 
     @NotNull
-    @Column(name = "phone_number",length = 20)
     @Pattern(regexp = "^\\+\\d{1,15}$",
             message = "Invalid phone number format")
     private String phoneNumber;
