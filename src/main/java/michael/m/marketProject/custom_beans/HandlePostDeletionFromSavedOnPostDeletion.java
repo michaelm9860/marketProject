@@ -30,4 +30,3 @@ public class HandlePostDeletionFromSavedOnPostDeletion {
         }
     }
 }
-// TODO: Test necessity of this class by deleting a post without calling it and checking if the saved posts are still there

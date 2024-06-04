@@ -32,6 +32,11 @@ build/
 ### VS Code ###
 .vscode/
 /src/main/resources/certs/
-/src/main/resources/uploads/
+# Ignore all files in the uploads directory
+/src/main/resources/uploads/*
+
+# But do not ignore admin_pfp.png
+!/src/main/resources/uploads/admin_pfp.png
+
 /src/main/resources/http-client.private.env.json
 /src/main/resources/market.http

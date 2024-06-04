@@ -32,7 +32,7 @@ public class SQLRunner implements CommandLineRunner {
                             .firstName("admin")
                             .lastName("admin")
                             .phoneNumber("+0000000000")
-                            .profilePicture("0000000000")
+                            .profilePicture("admin_pfp.png")
                             .location("Earth")
                             .email("admin1@admin.com")
                             .password(passwordEncoder.encode("Passw0rd1!"))

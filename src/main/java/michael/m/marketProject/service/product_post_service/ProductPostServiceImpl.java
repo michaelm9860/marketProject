@@ -58,6 +58,7 @@ public class ProductPostServiceImpl implements ProductPostService {
 
         ProductPost productPost = modelMapper.map(dto, ProductPost.class);
         productPost.setUserId(user.getId());
+        productPost.setOriginalPrice(productPost.getPrice());
 
         var saved = productPostRepository.save(productPost);
 
@@ -231,6 +232,7 @@ public class ProductPostServiceImpl implements ProductPostService {
         ProductPost productPost = modelMapper.map(dto, ProductPost.class);
         productPost.setGroupId(groupId);
         productPost.setUserId(user.getId());
+        productPost.setOriginalPrice(productPost.getPrice());
         var saved = productPostRepository.save(productPost);
         return modelMapper.map(saved, ProductPostResponseDTO.class);
 

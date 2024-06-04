@@ -37,6 +37,8 @@ public class ProductPost {
     @NotNull
     private int price;
 
+    private int originalPrice;
+
     @NotNull
     private String category;
 
