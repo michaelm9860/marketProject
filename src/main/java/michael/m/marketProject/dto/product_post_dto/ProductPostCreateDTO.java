@@ -32,6 +32,9 @@ public class ProductPostCreateDTO {
     private int price;
 
     @NotNull
+    private String currency;
+
+    @NotNull
     @Size(min = 1, max = 32, message = "Category must be between 1 and 32 characters")
     private String category;
 

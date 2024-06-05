@@ -40,6 +40,9 @@ public class ProductPost {
     private int originalPrice;
 
     @NotNull
+    private String currency;
+
+    @NotNull
     private String category;
 
     @CreationTimestamp

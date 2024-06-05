@@ -26,6 +26,8 @@ public class ProductPostResponseDTO {
 
     private int originalPrice;
 
+    private String currency;
+
     private String category;
 
     private String location;

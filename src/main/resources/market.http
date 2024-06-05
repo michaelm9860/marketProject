@@ -8,9 +8,10 @@ Content-Disposition: form-data; name="productPost"
 Content-Type: application/json
 
 {
-  "productName": "Product in group 1",
+  "productName": "Product in group 1 with currency",
   "description": "Product 1 description",
   "price": 100,
+  "currency": "USD",
   "category": "Category 1"
 }
 
