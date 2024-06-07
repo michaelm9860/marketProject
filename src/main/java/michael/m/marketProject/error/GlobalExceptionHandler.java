@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.multipart.MaxUploadSizeExceededException;
 
 import java.io.IOException;
 import java.sql.SQLIntegrityConstraintViolationException;
@@ -107,6 +108,12 @@ public class GlobalExceptionHandler {
                 .map(violation -> violation.getPropertyPath() + ": " + violation.getMessage())
                 .collect(Collectors.toList());
         ErrorResponseDTO errorResponse = new ErrorResponseDTO("BAD_REQUEST", String.join(", ", errors));
+        return ResponseEntity.badRequest().body(errorResponse);
+    }
+
+    @ExceptionHandler(MaxUploadSizeExceededException.class)
+    public ResponseEntity<ErrorResponseDTO> handleMaxSizeException(MaxUploadSizeExceededException exc) {
+        ErrorResponseDTO errorResponse = new ErrorResponseDTO("BAD_REQUEST", exc.getMessage());
         return ResponseEntity.badRequest().body(errorResponse);
     }
 }
