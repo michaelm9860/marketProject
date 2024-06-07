@@ -7,7 +7,6 @@ import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.web.multipart.MultipartFile;
 
 @Getter
 @Setter
@@ -42,7 +41,7 @@ public class UserCreateDTO {
 
     @NotNull
     @Size(min = 8, max = 20, message = "Password should have between 8 and 20 characters")
-    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&+=!]).{8,}$", message = "password must contain at least 1 lowercase letter, 1 uppercase letter, 1 digit and 1 special character")
+    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&+=!]).{8,20}$", message = "password must contain at least 1 lowercase letter, 1 uppercase letter, 1 digit and 1 special character")
     private String password;
 
 }
