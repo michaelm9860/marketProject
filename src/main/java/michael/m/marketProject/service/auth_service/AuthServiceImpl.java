@@ -47,8 +47,9 @@ public class AuthServiceImpl implements AuthService {
     @Transactional
     @Override
     public UserResponseDTO register(UserCreateDTO dto, MultipartFile profilePictureFile) {
-        checkIfPhoneNumberExists(dto);
         checkIfEmailExists(dto);
+        checkIfPhoneNumberExists(dto);
+
 
         String fileName = fileStorageService.storeFile(profilePictureFile);
         dto.setProfilePicture(fileName);
