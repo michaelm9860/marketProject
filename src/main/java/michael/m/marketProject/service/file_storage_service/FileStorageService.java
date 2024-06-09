@@ -4,6 +4,8 @@ import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import michael.m.marketProject.config.FileStorageProperties;
 import michael.m.marketProject.error.FileStorageException;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
@@ -74,6 +76,20 @@ public class FileStorageService {
             Files.deleteIfExists(filePath);
         } catch (IOException ex) {
             throw new FileStorageException("Could not delete file " + fileName + ". Please try again!", ex);
+        }
+    }
+
+    public Resource loadFileAsResource(String fileName) {
+        try {
+            Path filePath = this.fileStorageLocation.resolve(fileName).normalize();
+            Resource resource = new UrlResource(filePath.toUri());
+            if (resource.exists()) {
+                return resource;
+            } else {
+                throw new FileStorageException("File not found " + fileName);
+            }
+        } catch (IOException ex) {
+            throw new FileStorageException("File not found " + fileName, ex);
         }
     }
 
