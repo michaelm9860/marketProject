@@ -24,4 +24,7 @@ public class UserResponseDTO {
     private LocalDateTime createdAt;
     private Set<ProductPostResponseDTO> posts;
     private Set<Long> savedPostsIds;
+    private Set<Long> groupIds;
+    private Set<Long> groupsUserIsAdminOf;
+    private Set<Long> groupsUserIsPendingIn;
 }
