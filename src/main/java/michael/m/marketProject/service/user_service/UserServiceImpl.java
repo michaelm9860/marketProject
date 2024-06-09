@@ -127,6 +127,8 @@ public class UserServiceImpl implements UserService {
             handleOldPicturesDeletionOnEntityChange.deleteOldImage(user.getProfilePicture());
             String fileName = fileStorageService.storeFile(profilePictureFile);
             dto.setProfilePicture(fileName);
+        }else{
+            dto.setProfilePicture(null);
         }
 
         propertyUpdater.updateNonNullProperties(dto, user);
