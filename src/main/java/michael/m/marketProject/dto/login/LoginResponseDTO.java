@@ -1,4 +1,6 @@
 package michael.m.marketProject.dto.login;
 
-public record LoginResponseDTO(String jwt) {
+import michael.m.marketProject.dto.user_dto.UserResponseDTO;
+
+public record LoginResponseDTO(String jwt, UserResponseDTO user) {
 }

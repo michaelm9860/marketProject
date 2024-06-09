@@ -82,8 +82,10 @@ public class AuthServiceImpl implements AuthService {
                 user.getRoles().stream().map(r -> new SimpleGrantedAuthority(r.getName())).toList()
         );
 
+        var userResponseDTO = modelMapper.map(user, UserResponseDTO.class);
+
         var jwt = jwtService.jwtToken(authentication);
-        return new LoginResponseDTO(jwt);
+        return new LoginResponseDTO(jwt, userResponseDTO);
     }
 
     private void checkIfEmailExists(UserCreateDTO dto) {
