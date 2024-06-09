@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import michael.m.marketProject.dto.product_post_dto.ProductPostResponseDTO;
+import michael.m.marketProject.entity.Role;
 
 import java.time.LocalDateTime;
 import java.util.Set;
@@ -27,4 +28,5 @@ public class UserResponseDTO {
     private Set<Long> groupIds;
     private Set<Long> groupsUserIsAdminOf;
     private Set<Long> groupsUserIsPendingIn;
+    private Set<Role> roles;
 }
