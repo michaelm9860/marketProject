@@ -54,8 +54,6 @@ public class AuthServiceImpl implements AuthService {
         String fileName = fileStorageService.storeFile(profilePictureFile);
         dto.setProfilePicture(fileName);
 
-        //TODO: In client side, make a default profile picture if the user doesn't upload one.
-
         User user = modelMapper.map(dto, User.class);
         user.setPassword(passwordEncoder.encode(dto.getPassword()));
         Role role = roleRepository.findRoleByNameIgnoreCase("ROLE_USER").orElseThrow(() -> new RuntimeException("Role not found"));
