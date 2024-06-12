@@ -112,8 +112,8 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(MaxUploadSizeExceededException.class)
-    public ResponseEntity<ErrorResponseDTO> handleMaxSizeException(MaxUploadSizeExceededException exc) {
-        ErrorResponseDTO errorResponse = new ErrorResponseDTO("BAD_REQUEST", exc.getMessage());
+    public ResponseEntity<ErrorResponseDTO> handleMaxSizeException(MaxUploadSizeExceededException ex) {
+        ErrorResponseDTO errorResponse = new ErrorResponseDTO("BAD_REQUEST", ex.getMessage());
         return ResponseEntity.badRequest().body(errorResponse);
     }
 }
