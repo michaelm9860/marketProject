@@ -184,6 +184,13 @@ public class UserServiceImpl implements UserService {
         if (userGroup.getGroupAdminsIds().contains(user.getId())) {
             userGroup.getGroupAdminsIds().remove(user.getId());
             user.getGroupsUserIsAdminOf().remove(groupId);
+            if (userGroup.getGroupAdminsIds().isEmpty()) {
+                if (!userGroup.getGroupMembersIds().isEmpty()){
+                    User userToBePromoted = getUserEntityOrThrow(userGroup.getGroupMembersIds().iterator().next());
+                    userGroup.getGroupAdminsIds().add(userToBePromoted.getId());
+                    userToBePromoted.getGroupsUserIsAdminOf().add(groupId);
+                }
+            }
         }
         if (userGroup.getGroupMembersIds().isEmpty()){
             handleGroupPostsOnGroupDeletion.handleGroupPostsOnGroupDeletion(userGroup);
