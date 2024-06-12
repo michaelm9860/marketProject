@@ -10,6 +10,7 @@ import michael.m.marketProject.entity.ProductPost;
 import michael.m.marketProject.entity.User;
 import michael.m.marketProject.entity.UserGroup;
 import michael.m.marketProject.error.EntityOwnershipException;
+import michael.m.marketProject.error.GroupMembershipException;
 import michael.m.marketProject.error.ResourceNotFoundException;
 import michael.m.marketProject.repository.ProductPostRepository;
 import michael.m.marketProject.repository.UserGroupRepository;
@@ -152,6 +153,11 @@ public class UserServiceImpl implements UserService {
     public UserResponseDTO sendRequestToJoinGroup(Long groupId, Authentication authentication) {
         User user = getAuthenticatedRequestingUser.getRequestingUserEntityByAuthenticationOrThrow(authentication);
         UserGroup userGroup = getUserGroupEntityOrThrow(groupId);
+
+        if (userGroup.getGroupMembersIds().contains(user.getId())) {
+            throw new GroupMembershipException("User is already a member of the group");
+        }
+
         if (userGroup.isPrivate()){
             userGroup.getPendingMembersIds().add(user.getId());
             user.getGroupsUserIsPendingIn().add(groupId);
