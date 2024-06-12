@@ -13,6 +13,9 @@ public interface ProductPostRepository extends JpaRepository<ProductPost, Long> 
 //    List<ProductPost> findProductPostsByUserId(@Param("userId") Long userId);
     List<ProductPost> findProductPostsByUserId(Long userId);
 
-    @Query(value = "SELECT p.* FROM product_post p LEFT JOIN user_group g ON p.group_id = g.id WHERE g.is_private = false OR p.group_id IS NULL ORDER BY p.product_name DESC, p.id DESC", countQuery = "SELECT COUNT(*) FROM product_post p LEFT JOIN user_group g ON p.group_id = g.id WHERE g.is_private = false OR p.group_id IS NULL", nativeQuery = true)
+    @Query(value = "SELECT p.* FROM product_post p LEFT JOIN user_group g ON p.group_id = g.id WHERE g.is_private = false OR p.group_id IS NULL",
+            countQuery = "SELECT COUNT(*) FROM product_post p LEFT JOIN user_group g ON p.group_id = g.id WHERE g.is_private = false OR p.group_id IS NULL",
+            nativeQuery = true)
     Page<ProductPost> findAllPublicPosts(Pageable pageable);
+
 }

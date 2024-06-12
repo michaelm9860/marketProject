@@ -49,6 +49,7 @@ public class SecurityConfig {
                         auth -> {
                             auth.requestMatchers("/api/v1/auth/**").permitAll();
                             auth.requestMatchers("/api/v1/files/**").permitAll();
+                            auth.requestMatchers("/api/v1/products/**").permitAll();
                             auth.requestMatchers("/api/v1/**").authenticated();
                             auth.anyRequest().permitAll();
                         }

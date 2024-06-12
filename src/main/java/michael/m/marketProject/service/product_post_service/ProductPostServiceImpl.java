@@ -67,7 +67,7 @@ public class ProductPostServiceImpl implements ProductPostService {
 
 
 
-    @PreAuthorize("isAuthenticated()")
+
     @Override
     public ProductPostListDTO getAllProductPosts(Authentication authentication, int pageNum, int pageSize, String sortDir, String... sortBy) {
 
@@ -106,7 +106,7 @@ public class ProductPostServiceImpl implements ProductPostService {
         }
     }
 
-    @PreAuthorize("isAuthenticated()")
+
     @Override
     public ProductPostResponseDTO getProductPostById(Long id, Authentication authentication) {
         ProductPost post = getProductPostEntityOrThrow(id);
@@ -114,6 +114,9 @@ public class ProductPostServiceImpl implements ProductPostService {
             var group = userGroupRepository.findById(post.getGroupId())
                     .orElseThrow(() -> new ResourceNotFoundException("UserGroup", "id", post.getGroupId()));
             if(group.isPrivate()){
+                if (authentication == null || !authentication.isAuthenticated()) {
+                    throw new GroupMembershipException("Anonymous user", group.getId());
+                }
                 User user = getAuthenticatedRequestingUser.getRequestingUserEntityByAuthenticationOrThrow(authentication);
                 if (!group.getGroupMembersIds().contains(user.getId())){
                     throw new GroupMembershipException(user.getEmail(), group.getId());

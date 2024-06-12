@@ -7,7 +7,13 @@ public interface AdminRoleChecker {
     boolean isAdmin(Authentication authentication);
 
     static AdminRoleChecker adminRoleChecker() {
-        return authentication -> authentication.getAuthorities().stream()
-                .anyMatch(a -> a.getAuthority().equals("ROLE_ADMIN"));
+        return authentication -> {
+            if (authentication == null) {
+                return false;
+            }
+            return authentication.getAuthorities().stream()
+                    .anyMatch(a -> a.getAuthority().equals("ROLE_ADMIN"));
+        };
     }
 }
+
