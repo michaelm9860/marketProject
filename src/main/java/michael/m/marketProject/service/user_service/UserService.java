@@ -21,8 +21,6 @@ public interface UserService {
 
     List<UserResponseDTO> getAllUsers(Authentication authentication);
 
-    List<ProductPostResponseDTO> getAllUserPostsByUserId(Long userId);
-
     UserResponseDTO sendRequestToJoinGroup(Long groupId, Authentication authentication);
 
     UserResponseDTO exitGroup(Long groupId, Authentication authentication);

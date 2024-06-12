@@ -147,15 +147,6 @@ public class UserServiceImpl implements UserService {
     }
 
     @PreAuthorize("isAuthenticated()")
-    @Override
-    public List<ProductPostResponseDTO> getAllUserPostsByUserId(Long userId) {
-        User user = getUserEntityOrThrow(userId);
-        return user.getPosts().stream()
-                .map(post -> modelMapper.map(post, ProductPostResponseDTO.class))
-                .collect(Collectors.toList());
-    }
-
-    @PreAuthorize("isAuthenticated()")
     @Transactional
     @Override
     public UserResponseDTO sendRequestToJoinGroup(Long groupId, Authentication authentication) {

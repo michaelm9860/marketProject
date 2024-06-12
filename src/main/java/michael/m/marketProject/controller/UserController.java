@@ -35,11 +35,6 @@ public class UserController {
         return ResponseEntity.ok(userService.getUserByProductPostId(postId));
     }
 
-    @GetMapping("/{userId}/posts")
-    public List<ProductPostResponseDTO> getAllUserPostsByUserId(@PathVariable Long userId) {
-        return userService.getAllUserPostsByUserId(userId);
-    }
-
     @PutMapping("/{id}")
     public ResponseEntity<UserResponseDTO> updateUserById(
             @PathVariable Long id,

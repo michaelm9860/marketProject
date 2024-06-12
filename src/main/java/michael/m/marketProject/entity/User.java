@@ -88,7 +88,6 @@ public class User {
 
 
     @OneToMany(mappedBy = "userId")
-//    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private Set<ProductPost> posts = new HashSet<>();
 
 
