@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import michael.m.marketProject.config.RSAKeyProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -50,6 +51,7 @@ public class SecurityConfig {
                             auth.requestMatchers("/api/v1/auth/**").permitAll();
                             auth.requestMatchers("/api/v1/files/**").permitAll();
                             auth.requestMatchers("/api/v1/products/**").permitAll();
+                            auth.requestMatchers(HttpMethod.GET, "/api/v1/users/*").permitAll();
                             auth.requestMatchers("/api/v1/**").authenticated();
                             auth.anyRequest().permitAll();
                         }

@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserService {
     private final FileStorageService fileStorageService;
     private final HandleOldPicturesDeletionOnEntityChange handleOldPicturesDeletionOnEntityChange;
 
-    @PreAuthorize("isAuthenticated()")
+
     @Override
     public UserResponseDTO getUserById(Long id) {
         User user = getUserEntityOrThrow(id);
