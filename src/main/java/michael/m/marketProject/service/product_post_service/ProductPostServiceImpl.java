@@ -145,6 +145,8 @@ public class ProductPostServiceImpl implements ProductPostService {
                 String fileName = fileStorageService.storeFile(file);
                 dto.getPictures().add(fileName);
             }
+        }else{
+            dto.setPictures(null);
         }
 
         propertyUpdater.updateNonNullProperties(dto, post);
