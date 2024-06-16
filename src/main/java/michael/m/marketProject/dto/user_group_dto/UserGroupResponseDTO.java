@@ -19,6 +19,7 @@ public class UserGroupResponseDTO {
     private String description;
     private Set<Long> groupMembersIds;
     private Set<Long> groupAdminsIds;
+    private Set<Long> pendingMembersIds;
     private String image;
     private Set<ProductPost> groupPosts;
     private boolean isPrivate;
