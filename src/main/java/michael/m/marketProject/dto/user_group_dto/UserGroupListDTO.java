@@ -12,7 +12,7 @@ import java.util.Collection;
 @AllArgsConstructor
 @Builder
 public class UserGroupListDTO {
-    private long totalPosts;
+    private long totalGroups;
     private int pageNum;
     private int pageSize;
     private int totalPages;
