@@ -133,6 +133,18 @@ public class UserGroupServiceImpl implements UserGroupService {
 
         propertyUpdater.updateNonNullProperties(dto, userGroup);
 
+        if (userGroup.isPrivate() && !userGroup.getPendingMembersIds().isEmpty() && !dto.isPrivate()) {
+            for (Long pendingMemberId : userGroup.getPendingMembersIds()) {
+                User pendingMember = getUserEntityOrThrow(pendingMemberId);
+                pendingMember.getGroupsUserIsPendingIn().remove(userGroup.getId());
+                pendingMember.getGroupIds().add(userGroup.getId());
+                userRepository.save(pendingMember);
+            }
+            userGroup.getPendingMembersIds().clear();
+        }
+
+        userGroup.setPrivate(dto.isPrivate());
+
         var saved = userGroupRepository.save(userGroup);
 
         return modelMapper.map(saved, UserGroupResponseDTO.class);
