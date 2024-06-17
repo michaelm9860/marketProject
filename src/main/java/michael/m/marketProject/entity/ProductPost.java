@@ -55,12 +55,9 @@ public class ProductPost {
     @Size(min = 2, max = 32)
     private String location;
 
-    //    @Column(name = "user_id")
     private Long userId;
 
-    //    @Column(name = "saved_count")
     private int savedCount = 0;
 
-    //    @Column(name = "group_id")
     private Long groupId;
 }
