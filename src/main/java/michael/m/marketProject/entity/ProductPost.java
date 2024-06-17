@@ -51,6 +51,8 @@ public class ProductPost {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
+    private LocalDateTime contentUpdatedAt;
+
     @NotNull
     @Size(min = 2, max = 32)
     private String location;

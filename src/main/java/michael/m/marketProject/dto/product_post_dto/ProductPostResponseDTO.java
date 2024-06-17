@@ -36,7 +36,7 @@ public class ProductPostResponseDTO {
 
     private LocalDateTime createdAt;
 
-    private LocalDateTime updatedAt;
+    private LocalDateTime contentUpdatedAt;
 
     private int savedCount;
 

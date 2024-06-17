@@ -24,6 +24,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 
@@ -151,6 +152,7 @@ public class ProductPostServiceImpl implements ProductPostService {
 
         propertyUpdater.updateNonNullProperties(dto, post);
 
+        post.setContentUpdatedAt(LocalDateTime.now());
 
         var saved = productPostRepository.save(post);
 
